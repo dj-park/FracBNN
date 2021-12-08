@@ -18,10 +18,17 @@ xlnk.xlnk_reset()
 # In[2]:
 
 
-overlay = Overlay("./FracNet_T_0.bit")
+#overlay = Overlay("./FracNet_T_0.bit")
+# overlay?
+#FracNet = overlay.FracNet_T_0
+# timer = overlay.axi_timer_0
+
+overlay = Overlay("./design_1_wrapper.bit")
 # overlay?
 FracNet = overlay.FracNet_T_0
 # timer = overlay.axi_timer_0
+
+
 
 
 # In[3]:

@@ -146,7 +146,7 @@ inline void pg_conv3x3_tile(
 )
 {
 #pragma HLS INLINE
-#pragma HLS ALLOCATION instances=binary_conv3x3_tile limit=1 function
+#pragma HLS ALLOCATION function instances=binary_conv3x3_tile limit=1
     bool switch_on = 1;
     // always compute msb binary conv
     binary_conv3x3_tile(

@@ -108,7 +108,7 @@ set orig_proj_dir "[file normalize "$origin_dir/../../FracNetVivado/FracNet-CIFA
 
 
 # Create project
-create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xczu3eg-sbva484-1-e
+create_project ${_xil_proj_name_} ./${_xil_proj_name_} -part xczu3eg-sbva484-1-e -force
 
 
 # Set the directory path for the new project
@@ -649,7 +649,7 @@ set_property EXCLUDE_DEBUG_LOGIC "0" [get_files design_1.bd ]
 set_property GENERATE_SYNTH_CHECKPOINT "1" [get_files design_1.bd ] 
 set_property IS_ENABLED "1" [get_files design_1.bd ] 
 set_property IS_GLOBAL_INCLUDE "0" [get_files design_1.bd ] 
-set_property IS_LOCKED "0" [get_files design_1.bd ] 
+#set_property IS_LOCKED "0" [get_files design_1.bd ] 
 set_property LIBRARY "xil_defaultlib" [get_files design_1.bd ] 
 set_property PATH_MODE "RelativeFirst" [get_files design_1.bd ] 
 set_property PFM_NAME "" [get_files design_1.bd ] 
@@ -1383,5 +1383,5 @@ move_dashboard_gadget -name {utilization_2} -row 1 -col 1
 move_dashboard_gadget -name {methodology_1} -row 2 -col 1
 
 
-launch_runs impl_1 -to_step write_bitstream -jobs 4
+launch_runs impl_1 -to_step write_bitstream -jobs 8
 wait_on_run impl_1

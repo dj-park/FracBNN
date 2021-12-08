@@ -15,13 +15,12 @@ void FracNet_T(
 #pragma HLS INTERFACE m_axi depth=10 port=output offset=slave bundle=RESULT
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
-#pragma HLS ALLOCATION instances=binary_conv3x3_tile limit=1 function
-#pragma HLS ALLOCATION instances=bn_relu_shortcut limit=1 function
-#pragma HLS ALLOCATION instances=quant_and_pack limit=1 function
+#pragma HLS ALLOCATION function instances=binary_conv3x3_tile limit=1
+#pragma HLS ALLOCATION function instances=bn_relu_shortcut limit=1
+#pragma HLS ALLOCATION function instances=quant_and_pack limit=1
 
 	uint64 msb_fmap[3][WIDTH][WIDTH];
 #pragma HLS ARRAY_PARTITION variable=msb_fmap complete dim=1
-#pragma HLS ARRAY_PARTITION variable=lsb_fmap complete dim=1
 
 	FIX_FM_acc out_buf_0[CHANNEL_OUT/CHANNEL_OUT_T][CHANNEL_OUT_T][WIDTH][WIDTH];
 	int16 out_buf_t0[CHANNEL_OUT_T][WIDTH][WIDTH];

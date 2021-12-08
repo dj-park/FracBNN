@@ -1,6 +1,6 @@
 
 # Extract Vivado HLS include path
-VHLS_PATH := $(dir $(shell which vivado_hls))/..
+VHLS_PATH := $(dir $(shell which vitis_hls))/..
 VHLS_INC ?= ${VHLS_PATH}/include
 
 CFLAGS = -g -I${VHLS_INC}
@@ -9,11 +9,11 @@ all: csim
 
 csim: tb.cc
 	@echo "Compiling & simulating cnn on amdpool ..."
-	vivado_hls -f csim.tcl
+	vitis_hls -f csim.tcl
 
 hls:
 	@echo "Run Vivado csim and HLS"
-	vivado_hls -f syn.tcl
+	vitis_hls -f syn.tcl
 
 vivado:
 	cp ./bitstream_prepare/design_1_wrapper.v ./bnn.prj/solution1/impl/ip/
